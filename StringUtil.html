@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Convert "--"" to normal text or back</title>
+</head>
+<body>
+	<div class="label">Input</div>
+	<textarea id="toBeConvert" class="input"
+		style="resize: none; width: 600px; height: 300px;"> </textarea>
+	<input type="button" value="convert" class="input"
+		onclick="convertText()"></input>
+	<div class="label">Output</div>
+	<div id="converted"></div>
+</body>
+
+<script>
+	function convertText() {
+		var lines = document.getElementById('toBeConvert').value.split('\n');
+		var convertedText = '';
+		for (var i = 0; i < lines.length; i++) {
+			//code here using lines[i] which will give you each line
+			lines[i] = lines[i].trim();
+			if (lines[i].charAt(0) == '"') {
+				if (lines[i].charAt(lines[i].length - 1) == '"') {
+					lines[i] = lines[i].substring(1, lines[i].length - 1);
+				} else {
+					lines[i] = lines[i].substring(1, lines[i].length - 2);
+					//console.log("check");
+				}
+			} else {
+				if (i != lines.length - 1) {
+					lines[i] = '"' + lines[i] + '",';
+				} else {
+					lines[i] = '"' + lines[i] + '"';
+				}
+			}
+			convertedText = convertedText + lines[i] + '\n';
+		}
+
+		document.getElementById('converted').innerHTML = "<pre>"
+				+ convertedText + "</pre>";
+	}
+</script>
+</html>
