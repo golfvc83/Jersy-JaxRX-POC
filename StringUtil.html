@@ -30,9 +30,9 @@
 				}
 			} else {
 				if (i != lines.length - 1) {
-					lines[i] = '"' + lines[i] + '",';
+					lines[i] = '"' + lines[i] + ' ",';
 				} else {
-					lines[i] = '"' + lines[i] + '"';
+					lines[i] = '"' + lines[i] + ' "';
 				}
 			}
 			convertedText = convertedText + lines[i] + '\n';
