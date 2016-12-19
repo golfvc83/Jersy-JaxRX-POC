@@ -12,6 +12,13 @@
 		onclick="convertText()"></input>
 	<div class="label">Output</div>
 	<div id="converted"></div>
+<div style = "width:30px; height:30px"></div>
+<div>
+	<div style = "border:solide">
+	    <span style = "display:block"><b>my sequel way of getting colum list from a table</b></span>
+		<span>select column_name from information_schema.columns where table_name= ? <span>
+	<div>
+</div>
 </body>
 
 <script>
@@ -30,9 +37,9 @@
 				}
 			} else {
 				if (i != lines.length - 1) {
-					lines[i] = '"' + lines[i] + ' ",';
+					lines[i] = '" ' + lines[i] + ' ",';
 				} else {
-					lines[i] = '"' + lines[i] + ' "';
+					lines[i] = '" ' + lines[i] + ' "';
 				}
 			}
 			convertedText = convertedText + lines[i] + '\n';
